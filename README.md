@@ -40,14 +40,31 @@ root --->current.txt  *
 
 ```
 ```
-*     Is the file that contain the path of last opened application, this file is on the root directory of uSD and is used at GUI-boot-loader load to know what directory was opened last time and show the files inside that directory, the same file is used if the design is updated when an user APP is opened to know after reset what user application need to load and after power up to directly launch the latest opened application.
+*     Is the file that contain the path of last opened application, this file is on the root directory of
+uSD and is used at GUI-boot-loader load to know what directory was opened last time and show the files
+inside that directory, the same file is used if the design is updated when an user APP is opened to know
+after reset what user application need to load and after power up to directly launch the latest opened
+application.
 
-**    Are the design and GUI-boot-loader image files, if both of this files are present on the root directory of the uSD, after reset, the GUI-boot-loader will ask the user if he want to update the design and the GUI-boot-loader, after update or if user cancel the update, these files are deleted from the uSD, so, next time after reset will not ask for update, each file is checked against FLASH content to see if the FLASH need to be updated, avoiding wearing out the FLASH memory.
+**    Are the design and GUI-boot-loader image files, if both of this files are present on the root
+directory of the uSD, after reset, the GUI-boot-loader will ask the user if he want to update the
+design and the GUI-boot-loader, after update or if user cancel the update, these files are deleted
+from the uSD, so, next time after reset will not ask for update, each file is checked against FLASH
+content to see if the FLASH need to be updated, avoiding wearing out the FLASH memory.
 
-***   Are the design and GUI-boot-loader for the applications inside that directory, each time an application is opened, the GUI-boot-loader check this files against FLASH content to see if there is a design update, design change and/or GUI-boot-loader was changed/updated, if only one bit is changed in one of the files the des.bin and/or exp.bin are rewritten on the FLASH, the applications in that directory will always run on the des.bin and exp.bin from that directory.
+***   Are the design and GUI-boot-loader for the applications inside that directory, each time an 
+application is opened, the GUI-boot-loader check this files against FLASH content to see if there
+is a design update, design change and/or GUI-boot-loader was changed/updated, if only one bit is 
+changed in one of the files the des.bin and/or exp.bin are rewritten on the FLASH, the applications
+in that directory will always run on the des.bin and exp.bin from that directory.
 
-****  These are the saved EEPROM files of the application with the same name, when opening an application the GUI-boot-loader will load this file into the FLASH, if the content in  FLASH differs from the uSD one, from there the first stage boot-loader will load the content from FLASH into the emulated EEPROM from the design.
-      When the user application is interrupted by the user thru INTERRUPT button, the GUI-boot-loader check the emulated EEPROM against uSD .eep file content and update the file only if there is a difference to avoid wearing out the uSD.
+****  These are the saved EEPROM files of the application with the same name, when opening an application
+the GUI-boot-loader will load this file into the FLASH, if the content in  FLASH differs from the uSD one,
+from there the first stage boot-loader will load the content from FLASH into the emulated EEPROM from the
+design.
+      When the user application is interrupted by the user thru INTERRUPT button, the GUI-boot-loader check
+      the emulated EEPROM against uSD .eep file content and update the file only if there is a difference
+      to avoid wearing out the uSD.
 ```
 
 ### FLASH images
